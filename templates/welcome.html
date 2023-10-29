@@ -1,0 +1,134 @@
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <title>Federated Learning Monitor</title>
+    <script>
+        function startStimulation(clientName,action) {
+            const stimulation = document.getElementById("stimulation_server");
+            stimulation.style.display = "block";
+            stimulation.innerText = "ESTABLISHING DATA TRANSFER PIPELINE.....";
+            //console.log(clientName + " button clicked. Initiating stimulation...");
+
+            // Simulate data transfer illusion
+            if(action == 'server_as_client'){
+                const path1 = document.createElement("div");
+                const path2 = document.createElement("div");
+                const path3 = document.createElement("div");
+                path1.className = "server_client1_line";
+                path2.className = "server_client2_line";
+                path3.className = "server_client3_line";
+                document.body.appendChild(path1);
+                document.body.appendChild(path2);
+                document.body.appendChild(path3);
+
+                setTimeout(function () {
+                    path1.remove();
+                    path2.remove();
+                    path3.remove();
+                    stimulation.style.display = "none";
+                    //console.log("Data received from " + clientName);
+                    // Redirect to the specified action
+                    window.location.href = action;
+                }, 15000); // 15000 milliseconds = 15 seconds
+            }
+            else{
+                const path = document.createElement("div");
+                if(action == 'client1'){
+                    path.className = "client1_server_line";
+                    document.body.appendChild(path);
+                    setTimeout(function () {
+                        path.remove();
+                        stimulation.style.display = "none";
+                        //console.log("Data received from " + clientName);
+                        // Redirect to the specified action
+                        window.location.href = action;
+                    }, 15000); // 15000 milliseconds = 15 seconds
+                }
+                else if(action == 'client2'){
+                    path.className = "client2_server_line";   
+                    document.body.appendChild(path);
+                    setTimeout(function () {
+                        path.remove();
+                        stimulation.style.display = "none";
+                        //console.log("Data received from " + clientName);
+                        // Redirect to the specified action
+                        window.location.href = action;
+                    }, 15000); // 15000 milliseconds = 15 seconds
+                }
+                else{
+                    path.className = "client3_server_line";
+                    document.body.appendChild(path);
+                    setTimeout(function () {
+                        path.remove();
+                        stimulation.style.display = "none";
+                        //console.log("Data received from " + clientName);
+                        // Redirect to the specified action
+                        window.location.href = action;
+                    }, 15000); // 15000 milliseconds = 15 seconds
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>FEDERATED LEARNING MONITOR</h1>
+    <br><br><br><br>
+    <div class = "stimulation_class" id="stimulation_server" style="display: none;"></div>
+    <div id="server-container">
+        <img src="static/images/server_image.png" alt="Server Image" class="server-image">
+        <div class = "server_buttons_container">
+            <form action="/authenticate" method="post">
+                <button class = "mybutton">Validate Server</button>
+            </form>
+            <form action="/server" method="post">
+                <button class = "mybutton">Activate Server</button>
+            </form>
+            <button class = "mybutton" onclick="startStimulation('Client 1', 'server_as_client')">Transfer Global Model To Local Clients</button>
+        </div>
+    </div>
+    <!--<div class="client1_server_line"></div>
+    <div class="client2_server_line"></div>
+    <div class="client3_server_line"></div>-->
+    <div id="clients-container">
+        <div class="client-container">
+            <img src="static/images/client1_image.png" alt="Client 1 Image" class="client1-image">
+            <div class = "client1_buttons_container">
+            <form action="/authenticate" method="post">
+            <button class = "mybutton">Validate Client</button>
+            </form>
+            <form action="/client_as_server" method="post">
+                <button class = "mybutton">Client 1 As Server</button>
+            </form>
+            <button class = "mybutton" onclick="startStimulation('Client 1', 'client1')">Transfer Weights To Server</button>
+            </div>
+        </div>
+
+        <div class="client-container">
+            <img src="static/images/client2_image.png" alt="Client 2 Image" class="client2-image">
+            <div class = "client2_buttons_container"> 
+            <form action="/authenticate" method="post">
+                <button class = "mybutton">Validate Client</button>
+            </form>
+            <form action="/client_as_server" method="post">
+                <button class = "mybutton">Client 2 As Server</button>
+            </form>
+            <button  class = "mybutton" onclick="startStimulation('Client 2', 'client2')">Transfer Weights To Server</button>
+            </div>
+        </div>
+
+        <div class="client-container">
+            <img src="static/images/client3_image.png" alt="Client 3 Image" class="client3-image">
+            <div class = client3_buttons_container>
+            <form action="/authenticate" method="post">
+            <button class = "mybutton">Validate Client</button>
+            </form>
+            <form action="/client_as_server" method="post">
+                <button class = "mybutton">Client 3 As Server</button>
+            </form>
+            <button class = "mybutton" onclick="startStimulation('Client 3', 'client3')">Transfer Weights To Server</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

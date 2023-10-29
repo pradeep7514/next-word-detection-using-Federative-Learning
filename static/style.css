@@ -1,0 +1,223 @@
+body {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+#server-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.server-image{
+    width:250px;
+    margin:0 20px;
+    position:absolute;
+    top : 40%;
+    left : 24%;
+}
+.server_buttons_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    position:absolute;
+    top:38%;
+    left:3%;
+}
+#clients-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+}
+.client1-image {
+    width: 150px;
+    position:absolute;
+    top:18%;
+    right:33%;
+}
+.client1_buttons_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    position:absolute;
+    top:8%;
+    right:12%;
+}
+.client2-image{
+    width:75px;
+    height: 120px;
+    position:absolute;
+    top:50%;
+    right:35%;
+}
+.client2_buttons_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    position:absolute;
+    top:38%;
+    right:12%;
+}
+.client3-image{
+    width: 150px;
+    position:absolute;
+    top:81%;
+    right:32%;
+}
+.client3_buttons_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    position:absolute;
+    top:70%;
+    right:12%;   
+}
+.server_client1_line{
+    position: absolute;
+    border-top: 5px dotted black;
+    width: 0;
+    top: 63%;
+    left:39%;
+    transform-origin: left;
+    transform: rotate(-39deg);
+    animation: draw1 13s linear forwards;
+    /*animation-iteration-count: infinite;*/
+}
+.server_client2_line{
+    position: absolute;
+    border-top: 5px dotted black;
+    width: 0;
+    top: 63%;
+    left:39%;
+    transform-origin: left;
+    transform: rotate(-3deg);
+    animation: draw2 13s linear forwards;
+    /*animation-iteration-count: infinite;*/
+}
+.server_client3_line{
+    position: absolute;
+    border-top: 5px dotted black;
+    width: 0;
+    top: 63%;
+    left:39%;
+    transform-origin: left;
+    transform: rotate(35deg);
+    animation: draw3 13s linear forwards;
+    /*animation-iteration-count: infinite;*/
+}
+.client1_server_line{
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    top: 33%;
+    left: 57%;
+    animation: draw1 13s linear forwards;
+    transform-origin:left;
+    transform: rotate(-218deg);
+    /*animation-iteration-count: infinite;*/
+}
+.client2_server_line{
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    top: 60%;
+    left: 60%;
+    animation: draw2 13s linear forwards;
+    transform-origin:left;
+    transform: rotate(-183deg);
+    /*animation-iteration-count: infinite;*/
+}
+.client3_server_line{
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    top: 92%;
+    left: 59%;
+    animation: draw3 13s linear forwards;
+    transform-origin:left;
+    transform: rotate(-145deg);
+    /*animation-iteration-count: infinite;*/
+}
+@keyframes draw1 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 150px;
+    }
+    100% {
+        width: 310px;
+    }
+}
+@keyframes draw2 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 150px;
+    }
+    100% {
+        width: 290px;
+    }
+}
+@keyframes draw3 {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 170px;
+    }
+    100% {
+        width: 335px;
+    }
+}
+#stimulation_server {
+    text-align: center;
+    font-size: 36px;
+    position: absolute; /* Added this line */
+    top:9%; /* Adjust the desired top position */
+}
+.path {
+    position: absolute;
+    top: 17%;
+    animation: drawPath 10s forwards;
+    width: 0;
+    color: red;
+    border-top: 10px dashed ;
+}
+@keyframes drawPath {
+    to {
+        width: 100%;
+    }
+}
+.myButton {
+    background-color:#A27BB8; 
+    border:2px solid white;
+    color: white; 
+    padding: 8px 28px; 
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    cursor: pointer; 
+    border-radius: 12px;
+}
+.myButton:hover {
+    background-color: lightblue;
+    border:3px solid #A27BB8;
+    color:#A27BB8;
+}

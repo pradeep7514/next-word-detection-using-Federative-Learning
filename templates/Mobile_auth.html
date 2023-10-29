@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MOBILE AUTHENTICATION PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <style>
+        .mylogin {
+            background-color:#A27BB8; 
+            border:2px solid white;
+            color: white; 
+            padding: 8px 28px; 
+            text-align: center;
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 16px;
+            cursor: pointer; 
+            border-radius: 12px;
+        }
+        .mylogin:hover {
+            background-color: lightblue;
+            border:3px solid #A27BB8;
+            color:#A27BB8;
+        }
+        .login_container{
+            padding-top: 1%;
+            padding-left: 1%;
+            padding-right: 1%;;
+            border: solid;
+            border-radius: 20px;
+            position:absolute;
+            top:23%;
+        }
+        .login_container table tr td{
+            font-size: large;
+        }
+        th, td{
+            padding: 10px;
+        }
+        input[type="text"]{
+            width: 200px;
+            height: 35px;
+            border-radius: 7px;
+        }
+        input[type="number"]{
+            width: 200px;
+            height: 35px;
+            border-radius: 7px;
+        }
+        input[type="password"]{
+            width: 200px;
+            height: 35px;
+            border-radius: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class = login_container>
+        <center><h2>MOBILE AUTHENTICATION DETAILS</h2></center>
+        <table>
+            <form action = "/mobile_auth" method = "post">
+                <tr>
+                    <td><b><label>MOBILE NUMBER :</label></b></td>
+                    <td><input type="text" name = "number" value="+919347827302" readonly/></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button class = "mylogin">SEND OTP</button></th>
+                </tr>
+            </form>
+        </table>
+    </div>
+</body>
+</html>
